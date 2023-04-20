@@ -1,0 +1,33 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.green{
+    color: green;
+}
+.red{
+    color: red;
+}
+.pink{
+    color: pink;
+}
+.orange{
+    color: orange;
+}
+.yellow{
+    color: yellow;
+}
+.sky{
+    color: skyblue;
+}
+
+.calculator{
+  padding: 1rem;
+  border: 1px solid #ebebeb;
+}
+.calculator .calc{
+  width: 95%;
+  padding: 15px;
+}
+

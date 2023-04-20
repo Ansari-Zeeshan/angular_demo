@@ -1,0 +1,30 @@
+<!-- if condition -->
+<h2 *ngIf="show==='yes'; then ifBlock else elseBlock"></h2>
+
+<ng-template #ifBlock>
+  <h2>Show Content</h2>
+</ng-template>
+
+<ng-template #elseBlock>
+  <h2>Nothing Here</h2>
+</ng-template>
+
+<!-- Nested if else condition -->
+<ng-template [ngIf]="color==='red'">
+  <h2 class="red">Red color</h2>
+</ng-template>
+<ng-template [ngIf]="color==='green'">
+  <h2 class="green">Green color</h2>
+</ng-template>
+<ng-template [ngIf]="color==='orange'">
+  <h2 class="orange">Orange color</h2>
+</ng-template>
+
+<!-- switch case -->
+<div [ngSwitch]="color2">
+  <h2 class="pink" *ngSwitchCase="'pink'">Pink Color</h2>
+  <h2 class="green" *ngSwitchCase="'green'">Green Color</h2>
+  <h2 class="yellow" *ngSwitchCase="'yellow'">Yellow Color</h2>
+  <h2 class="sky" *ngSwitchCase="'sky'">Sky Color</h2>
+  <h2 *ngSwitchDefault>Unknown Color</h2>
+</div>

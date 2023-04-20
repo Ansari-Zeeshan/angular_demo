@@ -1,0 +1,15 @@
+.accordian{
+    margin-top: 1.5rem;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.12);
+    padding: 1rem;
+    cursor: pointer;
+}
+.accordian .accordian-con{
+    max-height: 0;
+    visibility: hidden;
+    transition: max-height 0.4s ease-out, visibility 0.3s ease;
+}
+.accordian .accordian-con.active{
+    max-height: 250px;
+    visibility: visible;
+}

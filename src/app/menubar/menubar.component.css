@@ -1,0 +1,170 @@
+
+.yellow{
+  color: yellow;
+}
+.menubar{
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5rem 0;
+    background-color: #1A2136;
+    position: relative;
+    z-index: 80;
+}
+.menubar .panel-overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    z-index: 50;
+    display: none;
+}
+.menubar .panel-overlay.active{
+    display: block;
+}
+/* my menubar css start*/
+/* .menubar{
+  display: flex;
+  justify-content: space-between;
+  padding: 1.5rem 0;
+  background-color: #1A2136;
+  position: relative;
+  z-index: 80;
+}
+*/
+:host ::ng-deep .header1 .p-menubar .p-menubar-end {
+    width: 100%;
+  }
+  .navbar{
+    display: flex;
+    position: relative;
+    z-index: 80;
+    width: 100%;
+    justify-content: flex-end;
+  }
+  :host ::ng-deep .navbar button.dt-navigate{
+    margin-right: 1.8rem;
+    padding: 0;
+    background-color: transparent;
+    color: #bdc0c9;
+    font-size: 15px;
+    box-shadow: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s ease;
+  }
+  :host ::ng-deep .navbar .panel-nav-btn:last-child button.dt-navigate{
+    margin-right: 1rem;
+  }
+  .navbar button.dt-navigate i{
+    margin: 2px 0 0 5px;
+  }
+  .navbar button.dt-navigate.active{
+    color: #fff !important;
+  }
+  .navbar button.dt-navigate:hover{
+    color: #fff;
+  }
+  .navbar .panelbar{
+    position: relative;
+    z-index: 100;
+    display: none;
+  }
+  .navbar .panelbar.active{
+    display: block;
+  }
+  .navbar ul{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  .navbar li{
+    list-style-type: none;
+  }
+  .navbar .panel-nav-btn i{
+    padding: 0;
+    margin-right: 2rem;
+  }
+  .navbar .panel-nav-btn i{
+    transition: all 0.2s ease;
+  }
+  .navbar .openPanelBtn i.rotate180{
+    transform: rotate(180deg);
+  }
+  :host ::ng-deep .navbar ul a:hover{
+    text-decoration: none;
+  }
+  :host ::ng-deep .navbar .panelbar .panelbar-elem{
+    position: absolute;
+    top: 10px;
+    left: 0;
+    background-color: #1A2136;
+    padding: 0px;
+    margin: 0;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.12);
+    width: 225px;
+    transition: all 0.3s ease;
+  }
+  :host ::ng-deep .navbar .panelbar .panelbar-elem .panelbar-li{
+    padding: 6px 25px;
+    color: #bdc0bdc9;
+    font-size: 15px;
+  }
+  :host ::ng-deep .navbar .panelbar .panelbar-elem .panelbar-li a{
+    color: #bdc0bdc9;
+    font-size: 15px;
+  }
+  :host ::ng-deep .navbar .panelbar .panelbar-elem .panelbar-li a.active{
+    color: #fff;
+  }
+  .navbar .panelbar .panel-main-li{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    cursor: pointer;
+    padding: 6px 12px !important;
+  }
+  .navbar .panelbar .panel-main-li.active{
+    color: #fff !important;
+  }
+  .navbar .panelbar .panel-main-li i{
+    margin-right: 8px;
+  }
+  .navbar .panelbar .panel-main-li i.rotate90{
+    transform: rotate(90deg);
+  }
+  .navbar .panelbar .panelbar-elem .panelbar-li-child{
+    padding: 6px 35px;
+  }
+  .navbar .panelbar .panel-main-li.no-pad{
+    padding: 0 !important;
+  }
+  .navbar .panelbar .panel-main-li.no-pad a{
+    padding: 6px 12px;
+    width: 100%;
+  }
+  .navbar .panelbar .panelbar-elem .panelbar-li.active a{
+    color: #fff;
+  }
+  :host ::ng-deep .navbar .panelbar .panelbar-elem .panelbar-li:hover{
+    background-color: #4e5ba6;
+    color: #fff;
+  }
+  .navbar .panelbar .panelbar-elem .panelbar-li:hover a{
+    color: #fff;
+    text-decoration: none;
+    width: 100%;
+    height: 100%;
+  }
+  .navbar .panelbar .panelbar-elem-child{
+    height: 0;
+    visibility: hidden;
+    transition: height 0.25s ease, visibility 0.01s ease;
+  }
+  .navbar .panelbar .panelbar-elem-child.active{
+    visibility: visible;
+  }

@@ -1,0 +1,25 @@
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 8rem;
+    background-color: beige;
+}
+.logo img{
+    max-width: 70px;
+    height: auto;
+}
+header nav ul{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    list-style-type: none;
+}
+header ul li{
+    margin-right: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+header ul li:hover{
+    color: cadetblue;
+}

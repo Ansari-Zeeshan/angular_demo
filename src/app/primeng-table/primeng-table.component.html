@@ -1,0 +1,35 @@
+<p-toast></p-toast>
+<div class="container">
+    <div class="card">
+        <h5>Events</h5>
+        <p>onRowSelect and onRowUnselect are available as selection events.</p>
+        <p-table [value]="customers" selectionMode="single" [(selection)]="selectedProduct2" dataKey="code"
+            (onRowSelect)="onRowSelect($event)" (onRowUnselect)="onRowUnselect($event)" scrollHeight="250px"
+            [scrollable]="true" [resizableColumns]="true" responsiveLayout="scroll" stateStorage="local" stateKey="statedemo-local" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [paginator]="true" [rows]="10" [showCurrentPageReport]="true">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>Code</th>
+                    <th>Name</th>
+                    <th>Category</th>
+                    <th>Quantity</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-customer>
+                <tr [pSelectableRow]="customer">
+                    <td>{{customer.name}}</td>
+                    <td>{{customer.country.name}}</td>
+                    <td>{{customer.company}}</td>
+                    <td>{{customer.representative.name}}</td>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="paginatorleft">
+                <p-button type="button" icon="pi pi-plus" styleClass="p-button-text"></p-button>
+            </ng-template>
+            <ng-template pTemplate="paginatorright">
+                <p-button type="button" icon="pi pi-cloud" styleClass="p-button-text"></p-button>
+            </ng-template>
+        </p-table>
+    </div>
+    
+</div>
+

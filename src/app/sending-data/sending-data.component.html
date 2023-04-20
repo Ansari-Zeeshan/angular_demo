@@ -1,0 +1,5 @@
+<!-- send data child to component -->
+<h1 class="mt-5">Sending data child to component</h1>
+<h6 *ngFor="let actual of data">
+	<app-child [item]="actual" ></app-child>
+</h6>

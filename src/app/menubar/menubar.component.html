@@ -1,0 +1,46 @@
+<div class="menubar">
+	<div class="panel-overlay"></div>
+	<div class="logo">
+		<h4 class="logo yellow" routerLink="" (click)="disableActive($event)">Logo</h4>
+	</div>
+	<div class="navbar">
+		<div class="panel-overlay"></div>
+		<div class="panel-nav-btn" *ngFor="let elem of navbarItems; let i=index;">
+			<div *ngIf="elem.items.length!=0; then treePanel else singlePanel"></div>
+			<ng-template #treePanel>
+				<button class="dt-navigate openPanelBtn" pButton>
+					{{elem.label}} <i class="pi pi-angle-down"></i>	
+				</button>
+				<div class="panelbar">
+					<div class="panelbar-elem">
+						<ul class="elem-combined" *ngFor="let eleml1 of elem.items; let j=index;">
+							<li class="panel-main-li panelbar-li no-pad">
+								<ng-container *ngIf="eleml1?.items">
+									<a (click)="openChildPanel($event)">
+										<i class="pi pi-angle-right" ></i>
+										{{eleml1.label}}
+									</a>
+								</ng-container>
+								<ng-container *ngIf="!eleml1?.items">
+									<a class="single-link" (click)="eleml1.command($event)" routerLink="{{eleml1.routerLink}}">{{eleml1.label}}</a>
+								</ng-container>
+							</li>
+							
+							<ul *ngIf="eleml1?.items" class="panelbar-elem-child">
+								<ng-container *ngFor="let eleml2 of eleml1.items; let k=index;">
+									<a routerLink="{{eleml2.routerLink}}" (click)="eleml2.command($event)">
+										<li class="panelbar-li panelbar-li-child">{{eleml2.label}}</li>
+									</a>
+								</ng-container>
+							</ul>
+						</ul>
+					</div>	
+				</div>
+			</ng-template>
+			  
+			<ng-template #singlePanel>
+				<button class="dt-navigate" pButton (click)="redirectPage($event)" routerLink="{{elem.routerLink}}">{{elem.label}}</button>
+			</ng-template>
+		</div>
+	</div>
+</div>

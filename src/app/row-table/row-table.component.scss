@@ -1,0 +1,13 @@
+:host ::ng-deep{
+    .p-datatable.p-datatable-sm .p-datatable-thead > tr > th {
+        background-color: #2B6971;
+        color: #fff;
+        border: none;
+        &:focus{
+            box-shadow: none;
+        }
+    }
+    .p-datatable .p-sortable-column .p-sortable-column-icon {
+        color: #fff;
+    }
+}

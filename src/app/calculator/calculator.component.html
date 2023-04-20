@@ -1,0 +1,24 @@
+<div class="calculator">
+    <div class="row">
+        <div class="col-4">
+            <input type="text" class="form-control" placeholder="Enter Value" value="">
+        </div>
+        <div class="col-4">
+            <button class="calc" (click)="clearAll()">C</button>
+        </div>
+    </div>
+    <div class="row" *ngFor="let elem of rowarr">
+        <div class="col-1 px-0">
+            <button class="calc" (click)="getValue($event)">{{elem.val1}}</button>
+        </div>
+        <div class="col-1 px-0">
+            <button class="calc" (click)="getValue($event)">{{elem.val2}}</button>
+        </div>
+        <div class="col-1 px-0">
+            <button class="calc" (click)="getValue($event)">{{elem.val3}}</button>
+        </div>
+        <div class="col-1 px-0">
+            <button class="calc" (click)="getValue($event)">{{elem.val4}}</button>
+        </div>
+    </div>
+</div>

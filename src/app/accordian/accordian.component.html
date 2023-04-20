@@ -1,0 +1,19 @@
+<div class="row">
+    <div class="accordian" *ngFor="let elem of accObj; let i = index" (click)="openContent($event)">
+        <div *ngIf="i===0; then ifPart else elsePart"></div>
+
+        <ng-template #ifPart>
+            <h3>{{elem.heading}}</h3>
+            <div class="accordian-con active">
+                <p>{{elem.content}}</p>	
+            </div>
+        </ng-template>
+        <ng-template #elsePart>
+            <h3>{{elem.heading}}</h3>
+            <div class="accordian-con">
+                <p>{{elem.content}}</p>	
+            </div>
+        </ng-template>
+
+    </div>
+</div>
