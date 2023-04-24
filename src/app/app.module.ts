@@ -43,6 +43,7 @@ import { BrowserSpecificComponent } from './browser-specific/browser-specific.co
 import { ParentCompComponent } from './parent-comp/parent-comp.component';
 import { ChildCompComponent } from './parent-comp/child-comp/child-comp.component';
 import { RowTableComponent } from './row-table/row-table.component';
+import { ToggleTableComponent } from './toggle-table/toggle-table.component';
 
 @NgModule({
   declarations: [
@@ -71,7 +72,8 @@ import { RowTableComponent } from './row-table/row-table.component';
     BrowserSpecificComponent,
     ParentCompComponent,
     ChildCompComponent,
-    RowTableComponent
+    RowTableComponent,
+    ToggleTableComponent
   ],
   imports: [
     AppRoutingModule,

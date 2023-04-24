@@ -1,13 +1,34 @@
 :host ::ng-deep{
-    .p-datatable.p-datatable-sm .p-datatable-thead > tr > th {
-        background-color: #2B6971;
-        color: #fff;
-        border: none;
-        &:focus{
-            box-shadow: none;
+    p-table{
+        >div{
+            box-shadow: 0 0 5px rgba(50,50,50,0.15);
         }
     }
+    .p-datatable.p-datatable-sm{
+        .p-datatable-thead > tr > th {
+            background-color: #2B6971;
+            color: #fff;
+            border: none;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            &:focus{
+                box-shadow: none;
+            }
+        }
+        .p-datatable-tbody > tr{
+            transition: all 0.2s ease;
+            &:hover{
+                background-color: #c4e4e9;
+            }
+        }
+    } 
     .p-datatable .p-sortable-column .p-sortable-column-icon {
+        color: #fff;
+        &:hover{
+            color: #2B6971;
+        }
+    }
+    .p-column-filter-menu-button {
         color: #fff;
     }
 }

@@ -165,6 +165,15 @@ export class MenubarComponent implements OnInit {
             this.disableEvery(e);
             // this.checkReportScope();
           }
+        },
+        {
+          label: "Toggle Table",
+          visible: true,
+          routerLink: '/toggletable',
+          command: (e) => {
+            this.disableEvery(e);
+            // this.checkReportScope();
+          }
         }
       ]
     }

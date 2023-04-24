@@ -15,6 +15,7 @@ import { ShowMessageComponent } from './show-message/show-message.component';
 import { BrowserSpecificComponent } from './browser-specific/browser-specific.component';
 import { ParentCompComponent } from './parent-comp/parent-comp.component';
 import { RowTableComponent } from './row-table/row-table.component';
+import { ToggleTableComponent } from './toggle-table/toggle-table.component';
 
 
 const routes: Routes = [
@@ -31,7 +32,8 @@ const routes: Routes = [
   {path: 'showmessage', component: ShowMessageComponent},
   {path: 'browserspecific', component: BrowserSpecificComponent},
   {path: 'parentcomp', component: ParentCompComponent},
-  {path: 'rowtable', component: RowTableComponent}
+  {path: 'rowtable', component: RowTableComponent},
+  {path: 'toggletable', component: ToggleTableComponent},
 ];
 
 @NgModule({
