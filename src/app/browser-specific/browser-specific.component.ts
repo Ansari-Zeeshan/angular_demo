@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef, Renderer2 } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-browser-specific',
@@ -7,13 +7,9 @@ import { Component, OnInit, ElementRef, Renderer2 } from '@angular/core';
 })
 export class BrowserSpecificComponent implements OnInit {
 
-  constructor(private elementRef: ElementRef, private renderer: Renderer2) { }
-
+  constructor() {}
+  
   ngOnInit(): void {
-    const elem = this.elementRef.nativeElement.querySelector('p');
-    if(navigator.userAgent.indexOf("Firefox") != -1){
-      this.renderer.setStyle(elem, 'color', 'red');
-      this.renderer.setStyle(elem, 'font-size', '25px');
-    }
+    // You can now access the appShowModal directive here
   }
 }

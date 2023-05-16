@@ -1,0 +1,24 @@
+
+.my-modal{
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    width: auto;
+    background-color: #fff;
+    box-shadow: 0 0 8px rgba(0,0,0,0.15);
+    .modal-header{
+        padding: 1rem 1.5rem;
+    }
+    .modal-content{
+        padding: 1.5rem;
+        border-top: 1px solid gray;
+        border-bottom: 1px solid gray;
+    }
+    .modal-bottom{
+        padding: 1rem 1.5rem;
+        display: flex;
+        justify-content: flex-end;
+    }
+}

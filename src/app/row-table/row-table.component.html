@@ -1,5 +1,5 @@
 <div class="container mt-5">
-    <p-table #dt1 [columns]="_selectedColumns" [value]="customers" [paginator]="true" [rows]="10" [showCurrentPageReport]="true" styleClass="p-datatable-sm p-datatable-customers p-datatable-gridlines" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[10,25,50]" [globalFilterFields]="['name','country.name','company','status']" [reorderableColumns]="true">
+    <p-table #dt1 [columns]="_selectedColumns" [value]="customers" [paginator]="true" [rows]="10" [showCurrentPageReport]="true" styleClass="p-datatable-sm p-datatable-customers" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[10,25,50]" [globalFilterFields]="['name','country.name','company','status']" [reorderableColumns]="true">
         <ng-template pTemplate="caption">
             <div class="row justify-content-between py-3">
                 <div class="col-md-4">
@@ -16,11 +16,11 @@
         </ng-template>
         <ng-template pTemplate="header" let-columns>
             <tr>
-                <th pReorderableColumn pSortableColumn="{{col.field}}" *ngFor="let col of columns">
+                <th pReorderableColumn pSortableColumn="{{col.sort}}" *ngFor="let col of columns">
                     <div class="p-d-flex p-jc-center p-ai-center">
                         {{col.header}}
-                        <p-sortIcon field="{{col.field}}"></p-sortIcon>
-                        <p-columnFilter type="text" field="{{col.field}}" display="menu"></p-columnFilter>
+                        <p-sortIcon field="{{col.sort}}"></p-sortIcon>
+                        <p-columnFilter type="text" field="{{col.sort}}" display="menu"></p-columnFilter>
                     </div>
                 </th>
                 <!-- <th pReorderableColumn pSortableColumn="name">
@@ -42,7 +42,12 @@
         <ng-template pTemplate="body" let-customer let-columns="columns">
             <tr>
                 <td *ngFor="let col of columns">
-                    {{customer[col.field]}}
+                    <ng-container *ngIf="customer[col.field][col.name]==null">
+                        {{customer[col.field]}}
+                    </ng-container>
+                    <ng-container *ngIf="customer[col.field][col.name]!==null">
+                        {{customer[col.field][col.name]}}
+                    </ng-container>
                 </td>
                 <!-- <td>{{customer.name}}</td>
                 <td>{{customer.country.name}}</td>

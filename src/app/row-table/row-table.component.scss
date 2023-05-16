@@ -14,11 +14,23 @@
             &:focus{
                 box-shadow: none;
             }
+            &:hover{
+                color: none;
+            }
         }
         .p-datatable-tbody > tr{
-            transition: all 0.2s ease;
+            border-top: 1px solid #f4f5f6;
+            border-bottom: 1px solid #f4f5f6;
+            transition: all 0.3s ease;
+            >td{
+                border: none;
+            }
             &:hover{
-                background-color: #c4e4e9;
+                background-color: #e1f2f4;
+                >td{
+                    border-top: 1px solid #99d6d6;
+                    border-bottom: 1px solid #99d6d6;
+                }
             }
         }
     } 

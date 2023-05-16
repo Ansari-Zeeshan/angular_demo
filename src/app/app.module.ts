@@ -44,6 +44,8 @@ import { ParentCompComponent } from './parent-comp/parent-comp.component';
 import { ChildCompComponent } from './parent-comp/child-comp/child-comp.component';
 import { RowTableComponent } from './row-table/row-table.component';
 import { ToggleTableComponent } from './toggle-table/toggle-table.component';
+import { MyModalComponent } from './my-modal/my-modal.component';
+import { ShowModalDirective } from './show-modal.directive';
 
 @NgModule({
   declarations: [
@@ -73,7 +75,9 @@ import { ToggleTableComponent } from './toggle-table/toggle-table.component';
     ParentCompComponent,
     ChildCompComponent,
     RowTableComponent,
-    ToggleTableComponent
+    ToggleTableComponent,
+    MyModalComponent,
+    ShowModalDirective
   ],
   imports: [
     AppRoutingModule,

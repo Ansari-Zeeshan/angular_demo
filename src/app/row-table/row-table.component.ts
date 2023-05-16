@@ -33,9 +33,9 @@ export class RowTableComponent implements OnInit {
     ];
 
     this.cols = [
-      { field: 'name', header: 'Name' },
-      { field: 'country.name', header: 'Country' },
-      { field: 'company', header: 'Company' }
+      { sort: 'name', field: 'name', header: 'Name' },
+      { sort: 'country.name', field: 'country', header: 'Country', name : 'name' },
+      { sort: 'company', field: 'company', header: 'Company' }
     ];
 
     this._selectedColumns = this.cols;
