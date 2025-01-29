@@ -23,35 +23,18 @@
                         <p-columnFilter type="text" field="{{col.sort}}" display="menu"></p-columnFilter>
                     </div>
                 </th>
-                <!-- <th pReorderableColumn pSortableColumn="name">
-                    <div class="p-d-flex p-jc-center p-ai-center">Name 
-                        <p-sortIcon field="name"></p-sortIcon>
-                        <p-columnFilter type="text" field="name" display="menu"></p-columnFilter>
-                    </div>
-                </th>
-                <th pReorderableColumn pSortableColumn="country.name">Country 
-                    <p-sortIcon field="country.name"></p-sortIcon>
-                    <p-columnFilter type="text" field="country.name" display="menu"></p-columnFilter>
-                </th>
-                <th pReorderableColumn pSortableColumn="company">Company 
-                    <p-sortIcon field="company"></p-sortIcon>
-                    <p-columnFilter type="text" field="company" display="menu"></p-columnFilter>
-                </th> -->
             </tr>
         </ng-template>
         <ng-template pTemplate="body" let-customer let-columns="columns">
             <tr>
                 <td *ngFor="let col of columns">
-                    <ng-container *ngIf="customer[col.field][col.name]==null">
+                    <ng-container *ngIf="customer[col.field][col.name]===null">
                         {{customer[col.field]}}
                     </ng-container>
-                    <ng-container *ngIf="customer[col.field][col.name]!==null">
+                    <ng-container *ngIf="customer[col.field][col.name]!===null">
                         {{customer[col.field][col.name]}}
                     </ng-container>
                 </td>
-                <!-- <td>{{customer.name}}</td>
-                <td>{{customer.country.name}}</td>
-                <td>{{customer.company}}</td> -->
             </tr>
         </ng-template>
 

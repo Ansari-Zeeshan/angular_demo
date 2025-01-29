@@ -19,24 +19,23 @@ export class AccordianComponent implements OnInit {
       heading: 'Animation 3',
       content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex corrupti molestias magni molestiae et, possimus minus aspernatur at impedit saepe quisquam cumque deleniti porro consequuntur vero facere, nisi dolorem natus.'
     }
-  ]
+  ];
 
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor() {
+    // Initialize if needed in the future
   }
 
-  openContent(e:any){
-    let con = e.target.parentNode.querySelector('.accordian-con');
-    let conActive = e.target.closest('.row').querySelector('.accordian-con.active');
-    console.log(conActive);
+  ngOnInit(): void {
+    // Lifecycle logic here (if needed in the future)
+  }
+
+  openContent(e: MouseEvent): void {
+    const con = (e.target as HTMLElement).parentNode?.querySelector('.accordian-con');
+    const conActive = e.target.closest('.row')?.querySelector('.accordian-con.active');
     
-    if(!con.classList.contains('active')){
-      conActive.classList.remove('active');
+    if (con && !con.classList.contains('active')) {
+      conActive?.classList.remove('active');
       con.classList.add('active');
     }
   }
-
-
-
 }

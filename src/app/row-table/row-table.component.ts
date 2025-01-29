@@ -1,8 +1,19 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CustomerService } from './customerservice';
 import { Customer } from './customer';
-import { SortEvent } from 'primeng/api';
-import { MessageService } from "primeng/api";
+import { MessageService } from 'primeng/api';
+
+interface Status {
+  label: string;
+  value: string;
+}
+
+interface Column {
+  sort: string;
+  field: string;
+  header: string;
+  name?: string;
+}
 
 @Component({
   selector: 'app-row-table',
@@ -11,18 +22,18 @@ import { MessageService } from "primeng/api";
   providers: [MessageService]
 })
 export class RowTableComponent implements OnInit {
-  customers: Customer[];
+  customers: Customer[] = [];
   first = 0;
   rows = 10;
-  statuses: any[];
-  cols: any[];
-  _selectedColumns: any[];
+  statuses: Status[] = [];  // Changed to a specific type
+  cols: Column[] = [];      // Changed to a specific type
+  _selectedColumns: Column[] = [];  // Changed to a specific type
   
   constructor(private customerService: CustomerService) { }
 
   ngOnInit(): void {
     this.customerService.getCustomersLarge().then(data => this.customers = data);
-    // console.log(`Data: ${this.products}`); 
+
     this.statuses = [
       { label: "Unqualified", value: "unqualified" },
       { label: "Qualified", value: "qualified" },
@@ -34,37 +45,36 @@ export class RowTableComponent implements OnInit {
 
     this.cols = [
       { sort: 'name', field: 'name', header: 'Name' },
-      { sort: 'country.name', field: 'country', header: 'Country', name : 'name' },
+      { sort: 'country.name', field: 'country', header: 'Country', name: 'name' },
       { sort: 'company', field: 'company', header: 'Company' }
     ];
 
     this._selectedColumns = this.cols;
   }
 
-  set selectedColumns(val: any[]) {
-      //restore original order
-      this._selectedColumns = this.cols.filter(col => val.includes(col));
-      console.log( "final" , this._selectedColumns);
+  set selectedColumns(val: Column[]) {
+    // Restore original order
+    this._selectedColumns = this.cols.filter(col => val.includes(col));
+    console.log("final", this._selectedColumns);
   }
 
-  next() {
+  next(): void {
     this.first = this.first + this.rows;
   }
 
-  prev() {
-      this.first = this.first - this.rows;
+  prev(): void {
+    this.first = this.first - this.rows;
   }
 
-  reset() {
-      this.first = 0;
+  reset(): void {
+    this.first = 0;
   }
 
   isLastPage(): boolean {
-      return this.customers ? this.first === (this.customers.length - this.rows): true;
+    return this.customers ? this.first === (this.customers.length - this.rows) : true;
   }
 
   isFirstPage(): boolean {
-      return this.customers ? this.first === 0 : true;
+    return this.customers ? this.first === 0 : true;
   }
-
 }

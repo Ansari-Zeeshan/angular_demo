@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ModalComponent } from '../modal/modal.component';
 
@@ -7,12 +7,9 @@ import { ModalComponent } from '../modal/modal.component';
   templateUrl: './show-message.component.html',
   styleUrls: ['./show-message.component.css']
 })
-export class ShowMessageComponent implements OnInit {
+export class ShowMessageComponent {
 
   constructor(private modalService: NgbModal) { }
-
-  ngOnInit(): void {
-  }
 
   openModal(){
     const modalRef = this.modalService.open(ModalComponent);
