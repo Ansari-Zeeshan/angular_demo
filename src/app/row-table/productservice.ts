@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core'; 
+import { Injectable } from '@angular/core';
 
 import { Product } from './product';
 
@@ -44,27 +44,24 @@ export class ProductService {
     constructor(private http: HttpClient) { }
 
     getProductsSmall() {
-        return this.http.get<any>('assets/products-small.json')
-        .toPromise()
-        .then(res => <Product[]>res.data)
-        .then(data => { return data; });
+        return this.http.get<{ data: Product[] }>('assets/products-small.json')
+            .toPromise()
+            .then(res => res.data);
     }
 
     getProducts() {
-        return this.http.get<any>('assets/products.json')
-        .toPromise()
-        .then(res => <Product[]>res.data)
-        .then(data => { return data; });
+        return this.http.get<{ data: Product[] }>('assets/products.json')
+            .toPromise()
+            .then(res => res.data);
     }
 
     getProductsWithOrdersSmall() {
-        return this.http.get<any>('assets/products-orders-small.json')
-        .toPromise()
-        .then(res => <Product[]>res.data)
-        .then(data => { return data; });
+        return this.http.get<{ data: Product[] }>('assets/products-orders-small.json')
+            .toPromise()
+            .then(res => res.data);
     }
 
-    generatePrduct(): Product {
+    generateProduct(): Product {
         const product: Product =  {
             id: this.generateId(),
             name: this.generateName(),
@@ -76,38 +73,38 @@ export class ProductService {
             rating: this.generateRating()
         };
 
-        product.image = product.name.toLocaleLowerCase().split(/[ ,]+/).join('-')+".jpg";;
+        product.image = product.name.toLocaleLowerCase().split(/[ ,]+/).join('-') + ".jpg";
         return product;
     }
 
-    generateId() {
+    generateId(): string {
         let text = "";
-        let possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        const possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
         
-        for (var i = 0; i < 5; i++) {
+        for (let i = 0; i < 5; i++) {
             text += possible.charAt(Math.floor(Math.random() * possible.length));
         }
         
         return text;
     }
 
-    generateName() {
-        return this.productNames[Math.floor(Math.random() * Math.floor(30))];
+    generateName(): string {
+        return this.productNames[Math.floor(Math.random() * this.productNames.length)];
     }
 
-    generatePrice() {
-        return Math.floor(Math.random() * Math.floor(299)+1);
+    generatePrice(): number {
+        return Math.floor(Math.random() * 299 + 1);
     }
 
-    generateQuantity() {
-        return Math.floor(Math.random() * Math.floor(75)+1);
+    generateQuantity(): number {
+        return Math.floor(Math.random() * 75 + 1);
     }
 
-    generateStatus() {
-        return this.status[Math.floor(Math.random() * Math.floor(3))];
+    generateStatus(): string {
+        return this.status[Math.floor(Math.random() * this.status.length)];
     }
 
-    generateRating() {
-        return Math.floor(Math.random() * Math.floor(5)+1);
+    generateRating(): number {
+        return Math.floor(Math.random() * 5 + 1);
     }
 }
